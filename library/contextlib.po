@@ -355,17 +355,17 @@ msgid ""
 "raised."
 msgstr ""
 "Si el código dentro del bloque de :keyword:`!with` lanza una :exc:"
-"`ExceptionGroup`, cualesquier excepciones suprimidos están retirados del "
-"grupo. Si algunas excepciones en el grupo no están suprimidos, un grupo que "
-"las contiene se lanza."
+"`ExceptionGroup`, las excepciones suprimidas son retiradas del grupo. Si "
+"algunas excepciones en el grupo no están suprimidas, un grupo que las "
+"contiene se lanza."
 
 #: ../Doc/library/contextlib.rst:313
 msgid ""
 "``suppress`` now supports suppressing exceptions raised as part of an :exc:"
 "`ExceptionGroup`."
 msgstr ""
-"Ahora ``supress`` admite suprimir excepciones lanzadas como parte de un :"
-"exc:`ExceptionGroup`."
+"Ahora ``supress`` admite suprimir excepciones lanzadas como parte de un :exc:"
+"`ExceptionGroup`."
 
 #: ../Doc/library/contextlib.rst:319
 msgid ""
