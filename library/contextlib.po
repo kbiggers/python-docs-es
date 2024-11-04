@@ -364,7 +364,7 @@ msgid ""
 "``suppress`` now supports suppressing exceptions raised as part of an :exc:"
 "`ExceptionGroup`."
 msgstr ""
-"Ahora ``supress`` admite que las excepciones sean lanzados como parte de un :"
+"Ahora ``supress`` admite suprimir excepciones lanzadas como parte de un :"
 "exc:`ExceptionGroup`."
 
 #: ../Doc/library/contextlib.rst:319
