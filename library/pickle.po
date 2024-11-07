@@ -2024,11 +2024,11 @@ msgstr "persistence"
 
 #: ../Doc/library/pickle.rst:12
 msgid "persistent"
-msgstr "persistente"
+msgstr "persistent"
 
 #: ../Doc/library/pickle.rst:12
 msgid "objects"
-msgstr "objectos"
+msgstr "objects"
 
 #: ../Doc/library/pickle.rst:12
 msgid "serializing"
@@ -2044,7 +2044,7 @@ msgstr "flattening"
 
 #: ../Doc/library/pickle.rst:12
 msgid "pickling"
-msgstr "decapado"
+msgstr "pickling"
 
 #: ../Doc/library/pickle.rst:123
 msgid "External Data Representation"
