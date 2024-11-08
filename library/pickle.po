@@ -968,7 +968,7 @@ msgid ""
 "built-in constants (``None``, ``True``, ``False``, ``Ellipsis``, and "
 "``NotImplemented``);"
 msgstr ""
-"constantes incorporados (``None``, ``True``, ``False``, ``Ellipsis``, and "
+"constantes incorporadas (``None``, ``True``, ``False``, ``Ellipsis``, y "
 "``NotImplemented``);"
 
 #: ../Doc/library/pickle.rst:500
