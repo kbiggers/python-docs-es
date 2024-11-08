@@ -991,7 +991,7 @@ msgid ""
 "functions (built-in and user-defined) accessible from the top level of a "
 "module (using :keyword:`def`, not :keyword:`lambda`);"
 msgstr ""
-"funciones (incorporados y definidos por el usuario) accesibles desde el "
+"funciones (incorporadas y definidas por el usuario) accesibles desde el "
 "nivel superior de un módulo (usando :keyword:`def`, no :keyword:`lambda`)"
 
 #: ../Doc/library/pickle.rst:509
