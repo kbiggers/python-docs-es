@@ -301,3 +301,102 @@ msgstr ""
 "instancia de :c:type:`PyDateTime_Date`, incluidas las subclases (como :c:"
 "type:`PyDateTime_DateTime`). El argumento no debe ser ``NULL``, y el tipo no "
 "se comprueba."
+
+#: ../Doc/c-api/datetime.rst:202
+msgid "Return the year, as a positive int."
+msgstr "Regrese el año, como un int positivo."
+
+#: ../Doc/c-api/datetime.rst:207
+msgid "Return the month, as an int from 1 through 12."
+msgstr "Regresa el mes, como int del 1 al 12."
+
+#: ../Doc/c-api/datetime.rst:212
+msgid "Return the day, as an int from 1 through 31."
+msgstr "Retorna el día, como int del 1 al 31."
+
+#: ../Doc/c-api/datetime.rst:215
+msgid ""
+"Macros to extract fields from datetime objects.  The argument must be an "
+"instance of :c:type:`PyDateTime_DateTime`, including subclasses. The "
+"argument must not be ``NULL``, and the type is not checked:"
+msgstr ""
+"Macros para extraer campos de objetos de fecha y hora. El argumento debe ser "
+"una instancia de :c:type:`PyDateTime_DateTime`, incluidas las subclases. El "
+"argumento no debe ser ``NULL`` y el tipo no es comprobado:"
+
+#: ../Doc/c-api/datetime.rst:221 ../Doc/c-api/datetime.rst:259
+msgid "Return the hour, as an int from 0 through 23."
+msgstr "Retorna la hora, como un int de 0 hasta 23."
+
+#: ../Doc/c-api/datetime.rst:226 ../Doc/c-api/datetime.rst:264
+msgid "Return the minute, as an int from 0 through 59."
+msgstr "Retorna el minuto, como un int de 0 hasta 59."
+
+#: ../Doc/c-api/datetime.rst:231 ../Doc/c-api/datetime.rst:269
+msgid "Return the second, as an int from 0 through 59."
+msgstr "Retorna el segundo, como un int de 0 hasta 59."
+
+#: ../Doc/c-api/datetime.rst:236 ../Doc/c-api/datetime.rst:274
+msgid "Return the microsecond, as an int from 0 through 999999."
+msgstr "Retorna el micro segundo, como un int de 0 hasta 999999."
+
+#: ../Doc/c-api/datetime.rst:241 ../Doc/c-api/datetime.rst:279
+msgid "Return the fold, as an int from 0 through 1."
+msgstr "Retorna el *fold*, como int de 0 a 1."
+
+#: ../Doc/c-api/datetime.rst:248 ../Doc/c-api/datetime.rst:286
+msgid "Return the tzinfo (which may be ``None``)."
+msgstr "Retorna el tzinfo (que puede ser ``None``)."
+
+#: ../Doc/c-api/datetime.rst:253
+msgid ""
+"Macros to extract fields from time objects.  The argument must be an "
+"instance of :c:type:`PyDateTime_Time`, including subclasses. The argument "
+"must not be ``NULL``, and the type is not checked:"
+msgstr ""
+"Macros para extraer campos de objetos de tiempo. El argumento debe ser una "
+"instancia de :c:type:`PyDateTime_Time`, incluidas las subclases. El "
+"argumento no debe ser ``NULL`` y el tipo no es comprobado:"
+
+#: ../Doc/c-api/datetime.rst:291
+#, fuzzy
+msgid ""
+"Macros to extract fields from time delta objects.  The argument must be an "
+"instance of :c:type:`PyDateTime_Delta`, including subclasses. The argument "
+"must not be ``NULL``, and the type is not checked:"
+msgstr ""
+"Macros para extraer campos de objetos delta de tiempo. El argumento debe ser "
+"una instancia de :c:type:`PyDateTime_Delta`, incluidas las subclases. El "
+"argumento no debe ser ``NULL`` y el tipo no es comprobado:"
+
+#: ../Doc/c-api/datetime.rst:297
+msgid "Return the number of days, as an int from -999999999 to 999999999."
+msgstr "Retorna el número de días, como un int desde -999999999 a 999999999."
+
+#: ../Doc/c-api/datetime.rst:304
+msgid "Return the number of seconds, as an int from 0 through 86399."
+msgstr "Retorna el número de segundos, como un int de 0 a 86399."
+
+#: ../Doc/c-api/datetime.rst:311
+msgid "Return the number of microseconds, as an int from 0 through 999999."
+msgstr "Retorna el número de micro segundos, como un int de 0 a 999999."
+
+#: ../Doc/c-api/datetime.rst:316
+msgid "Macros for the convenience of modules implementing the DB API:"
+msgstr "Macros para la conveniencia de módulos que implementan la API DB:"
+
+#: ../Doc/c-api/datetime.rst:320
+msgid ""
+"Create and return a new :class:`datetime.datetime` object given an argument "
+"tuple suitable for passing to :meth:`datetime.datetime.fromtimestamp()`."
+msgstr ""
+"Crea y retorna un nuevo objeto :class:`datetime.datetime` dado una tupla de "
+"argumentos adecuada para pasar a :meth:`datetime.datetime.fromtimestamp()`."
+
+#: ../Doc/c-api/datetime.rst:326
+msgid ""
+"Create and return a new :class:`datetime.date` object given an argument "
+"tuple suitable for passing to :meth:`datetime.date.fromtimestamp()`."
+msgstr ""
+"Crea y retorna un nuevo objeto :class:`datetime.date` dado una tupla de "
+"argumentos adecuada para pasar a :meth:`datetime.date.fromtimestamp()`."
