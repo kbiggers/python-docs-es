@@ -190,7 +190,7 @@ msgid ""
 "function always succeeds."
 msgstr ""
 "Retorna verdadero si *ob* es de tipo :c:data:`PyDateTime_DeltaType` o un "
-"subtipo de :c:data:`!SPyDateTime_DeltaType`. *ob* no debe ser ``NULL``. Esta "
+"subtipo de :c:data:`!PyDateTime_DeltaType`. *ob* no debe ser ``NULL``. Esta "
 "función siempre finaliza con éxito."
 
 #: ../Doc/c-api/datetime.rst:119
@@ -359,7 +359,6 @@ msgstr ""
 "argumento no debe ser ``NULL`` y el tipo no es comprobado:"
 
 #: ../Doc/c-api/datetime.rst:291
-#, fuzzy
 msgid ""
 "Macros to extract fields from time delta objects.  The argument must be an "
 "instance of :c:type:`PyDateTime_Delta`, including subclasses. The argument "
