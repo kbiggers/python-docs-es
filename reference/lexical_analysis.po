@@ -11,15 +11,16 @@ msgstr ""
 "Project-Id-Version: Python 3.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-21 16:38-0300\n"
-"PO-Revision-Date: 2021-10-30 14:13-0300\n"
+"PO-Revision-Date: 2024-12-24 09:02-0500\n"
 "Last-Translator: Cristián Maureira-Fredes <cmaureirafredes@gmail.com>\n"
-"Language: es\n"
 "Language-Team: python-doc-es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.16.0\n"
+"X-Generator: Poedit 3.5\n"
 
 #: ../Doc/reference/lexical_analysis.rst:6
 msgid "Lexical analysis"
@@ -152,7 +153,7 @@ msgstr ""
 
 #: ../Doc/reference/lexical_analysis.rst:91
 msgid "# -*- coding: <encoding-name> -*-"
-msgstr ""
+msgstr "# -*- coding: <encoding-name> -*-"
 
 #: ../Doc/reference/lexical_analysis.rst:93
 msgid "which is recognized also by GNU Emacs, and ::"
@@ -160,24 +161,22 @@ msgstr "que también es reconocido por GNU Emacs y ::"
 
 #: ../Doc/reference/lexical_analysis.rst:95
 msgid "# vim:fileencoding=<encoding-name>"
-msgstr ""
+msgstr "# vim:fileencoding=<encoding-name>"
 
 #: ../Doc/reference/lexical_analysis.rst:97
 msgid "which is recognized by Bram Moolenaar's VIM."
 msgstr "que es reconocido por el VIM de Bram Moolenaar."
 
 #: ../Doc/reference/lexical_analysis.rst:99
-#, fuzzy
 msgid ""
 "If no encoding declaration is found, the default encoding is UTF-8.  If the "
 "implicit or explicit encoding of a file is UTF-8, an initial UTF-8 byte-"
 "order mark (b'\\xef\\xbb\\xbf') is ignored rather than being a syntax error."
 msgstr ""
 "Si no se encuentra una declaración de codificación, la codificación por "
-"defecto es UTF-8.  Además, si los primeros bytes del archivo son la marca de "
-"orden de bytes UTF-8 (``b'\\xef\\xbb\\xbf'``), la codificación declarada del "
-"archivo es UTF-8 (esto está soportado, entre otros, por el programa :program:"
-"`notepad` de Microsoft)."
+"defecto es UTF-8. Si la codificación implícita o explicita de un archivo es "
+"UTF-8, una marca de orden de bytes UTF-8 inicial (``b'\\xef\\xbb\\xbf'``), "
+"se ignora en vez de ser un error de sintaxis."
 
 #: ../Doc/reference/lexical_analysis.rst:103
 msgid ""
@@ -216,6 +215,10 @@ msgid ""
 "   and 0 <= minute < 60 and 0 <= second < 60:   # Looks like a valid date\n"
 "        return 1"
 msgstr ""
+"if 1900 < year < 2100 and 1 <= month <= 12 \\\n"
+"   and 1 <= day <= 31 and 0 <= hour < 24 \\\n"
+"   and 0 <= minute < 60 and 0 <= second < 60:   # Looks like a valid date\n"
+"        return 1"
 
 #: ../Doc/reference/lexical_analysis.rst:127
 msgid ""
@@ -252,6 +255,10 @@ msgid ""
 "               'Juli',    'Augustus', 'September',  # for the months\n"
 "               'Oktober', 'November', 'December']   # of the year"
 msgstr ""
+"month_names = ['Januari', 'Februari', 'Maart',      # Son los\n"
+"               'April',   'Mei',      'Juni',       # nombres holandeses\n"
+"               'Juli',    'Augustus', 'September',  # para los meses\n"
+"               'Oktober', 'November', 'December']   # del año"
 
 #: ../Doc/reference/lexical_analysis.rst:147
 msgid ""
@@ -412,6 +419,17 @@ msgid ""
 "              r.append(l[i:i+1] + x)\n"
 "    return r"
 msgstr ""
+"def perm(l):\n"
+"        # Compute the list of all permutations of l\n"
+"    if len(l) <= 1:\n"
+"                  return [l]\n"
+"    r = []\n"
+"    for i in range(len(l)):\n"
+"             s = l[:i] + l[i+1:]\n"
+"             p = perm(s)\n"
+"             for x in p:\n"
+"              r.append(l[i:i+1] + x)\n"
+"    return r"
 
 #: ../Doc/reference/lexical_analysis.rst:233
 msgid "The following example shows various indentation errors::"
@@ -427,7 +445,15 @@ msgid ""
 "                r.append(l[i:i+1] + x)\n"
 "            return r                # error: inconsistent dedent"
 msgstr ""
+" def perm(l):                       # error: first line indented\n"
+"for i in range(len(l)):             # error: not indented\n"
+"    s = l[:i] + l[i+1:]\n"
+"        p = perm(l[:i] + l[i+1:])   # error: unexpected indent\n"
+"        for x in p:\n"
+"                r.append(l[i:i+1] + x)\n"
+"            return r                # error: inconsistent dedent"
 
+#: ../Doc/reference/lexical_analysis.rst:235
 #: ../Doc/reference/lexical_analysis.rst:243
 msgid ""
 "(Actually, the first three errors are detected by the parser; only the last "
@@ -576,7 +602,6 @@ msgid "*Pc* - connector punctuations"
 msgstr "*Pc* - puntuaciones conectoras"
 
 #: ../Doc/reference/lexical_analysis.rst:316
-#, fuzzy
 msgid ""
 "*Other_ID_Start* - explicit list of characters in `PropList.txt <https://www."
 "unicode.org/Public/15.1.0/ucd/PropList.txt>`_ to support backwards "
@@ -599,14 +624,13 @@ msgstr ""
 "analizan; la comparación de los identificadores se basa en NFKC."
 
 #: ../Doc/reference/lexical_analysis.rst:324
-#, fuzzy
 msgid ""
 "A non-normative HTML file listing all valid identifier characters for "
 "Unicode 15.1.0 can be found at https://www.unicode.org/Public/15.1.0/ucd/"
 "DerivedCoreProperties.txt"
 msgstr ""
 "Puede encontrar un archivo HTML no normativo que enumera todos los "
-"caracteres de identificación válidos para Unicode 14.0.0 en https://www."
+"caracteres de identificación válidos para Unicode 15.1.0 en https://www."
 "unicode.org/Public/14.0.0/ucd/DerivedCoreProperties.txt"
 
 #: ../Doc/reference/lexical_analysis.rst:332
@@ -633,13 +657,19 @@ msgid ""
 "assert     del        global     not        with\n"
 "async      elif       if         or         yield"
 msgstr ""
+"False      await      else       import     pass\n"
+"None       break      except     in         raise\n"
+"True       class      finally    is         return\n"
+"and        continue   for        lambda     try\n"
+"as         def        from       nonlocal   while\n"
+"assert     del        global     not        with\n"
+"async      elif       if         or         yield"
 
 #: ../Doc/reference/lexical_analysis.rst:356
 msgid "Soft Keywords"
 msgstr "Palabras clave suaves"
 
 #: ../Doc/reference/lexical_analysis.rst:362
-#, fuzzy
 msgid ""
 "Some identifiers are only reserved under specific contexts. These are known "
 "as *soft keywords*.  The identifiers ``match``, ``case``, ``type`` and ``_`` "
@@ -648,31 +678,31 @@ msgid ""
 msgstr ""
 "Algunos identificadores solo están reservados en contextos específicos. "
 "Estos se conocen como *palabras clave suaves*. Los identificadores "
-"``match``, ``case`` y ``_`` pueden actuar sintácticamente como palabras "
-"clave en contextos relacionados con la declaración de coincidencia de "
-"patrones, pero esta distinción se realiza en el nivel del analizador, no "
-"cuando se tokeniza."
+"``match``, ``case``, ``type`` y ``_`` pueden actuar sintácticamente como "
+"palabras clave en ciertos contextos, pero esta distinción se realiza en el "
+"nivel del analizador, no cuando se tokeniza."
 
 #: ../Doc/reference/lexical_analysis.rst:367
-#, fuzzy
 msgid ""
 "As soft keywords, their use in the grammar is possible while still "
 "preserving compatibility with existing code that uses these names as "
 "identifier names."
 msgstr ""
-"Como palabras clave suaves, su uso con la coincidencia de patrones es "
-"posible sin dejar de preservar la compatibilidad con el código existente que "
-"usa ``match``, ``case`` y ``_`` como nombres de identificadores."
+"Como palabras clave suaves, su uso en la gramática es posible sin dejar de "
+"preservar la compatibilidad con el código existente que usa esos nombres "
+"como nombres de identificadores."
 
 #: ../Doc/reference/lexical_analysis.rst:371
 msgid ""
 "``match``, ``case``, and ``_`` are used in the :keyword:`match` statement. "
 "``type`` is used in the :keyword:`type` statement."
 msgstr ""
+"``match``, ``case``, y ``_`` se usan en la declaración :keyword:`match`. "
+"``type`` se usa en la declaración :keyword:`type`."
 
 #: ../Doc/reference/lexical_analysis.rst:374
 msgid "``type`` is now a soft keyword."
-msgstr ""
+msgstr "``type`` ahora es un palabra clave suave."
 
 #: ../Doc/reference/lexical_analysis.rst:383
 msgid "Reserved classes of identifiers"
@@ -817,7 +847,6 @@ msgstr ""
 "fuente; ver apartado :ref:`encodings`."
 
 #: ../Doc/reference/lexical_analysis.rst:483
-#, fuzzy
 msgid ""
 "In plain English: Both types of literals can be enclosed in matching single "
 "quotes (``'``) or double quotes (``\"``).  They can also be enclosed in "
@@ -829,13 +858,16 @@ msgid ""
 "itself, or the quote character. See :ref:`escape sequences <escape-"
 "sequences>` below for examples."
 msgstr ""
-"En lenguaje claro y sencillo: ambos tipos de literales pueden ser encerrados "
+"En lenguaje claro y sencillo: Ambos tipos de literales pueden ser encerrados "
 "entre comillas simples (``'``) o dobles (``\"``).  También pueden estar "
 "encerrados en grupos de tres comillas simples o dobles (a las que "
 "generalmente se les llama *cadenas de tres comillas*).  El carácter de la "
-"barra inversa (``\\``) se utiliza para escapar de los caracteres que de otra "
-"manera tienen un significado especial, como la línea nueva, la barra inversa "
-"en sí misma, o el carácter de comillas."
+"barra inversa (``\\``) se utiliza para dar un significado especial a "
+"caracteres que de otra manera son ordinarios, como ``n``, lo que significa "
+"'línea nueva' cuando se escapa (``\\n``).  También se utiliza para escapar "
+"caracteres que de otra manera tienen un significado especial como la linea "
+"nueva, la barra inversa en sí misma, o el carácter de comillas. Consulte :"
+"ref:`escape sequences <escape-sequences>` a continuación para más ejemplos."
 
 #: ../Doc/reference/lexical_analysis.rst:496
 msgid ""
@@ -850,7 +882,6 @@ msgstr ""
 "mayor deben ser expresados con escapes."
 
 #: ../Doc/reference/lexical_analysis.rst:505
-#, fuzzy
 msgid ""
 "Both string and bytes literals may optionally be prefixed with a letter "
 "``'r'`` or ``'R'``; such constructs are called :dfn:`raw string literals` "
@@ -858,13 +889,12 @@ msgid ""
 "characters.  As a result, in raw string literals, ``'\\U'`` and ``'\\u'`` "
 "escapes are not treated specially."
 msgstr ""
-"Tanto los literales de cadena como de bytes pueden ser prefijados con una "
-"letra ``'r'`` o ``'R'``; tales cadenas se llaman :dfn:`raw strings` y "
-"consideran las barras inversas como caracteres literales.  Como resultado, "
-"en las cadenas literales, los escapes de ``'\\U'`` y ``'\\u'`` en las "
-"cadenas sin procesar no son tratados de manera especial. Dado que los "
-"literales *raw* de unicode de Python 2.x se comportan de manera diferente a "
-"los de Python 3.x, la sintaxis de ``'ur'`` no está soportada."
+"Tanto los literales de cadena como de bytes pueden ser prefijados con una letra "
+"``'r'`` o ``'R'``; tales cadenas se llaman :dfn:`raw string literals` "
+"y :dfn:`raw bytes literals` respectivamente y consideran las barras inversas "
+"como caracteres literales.  Como resultado, en las cadenas literales sin "
+"formato, los escapes de ``'\\U'`` y ``'\\u'`` no son tratados de manera "
+"especial."
 
 #: ../Doc/reference/lexical_analysis.rst:511
 msgid ""
@@ -910,9 +940,8 @@ msgstr ""
 "literal, es decir, ya sea ``'`` o ``\"``.)"
 
 #: ../Doc/reference/lexical_analysis.rst:551
-#, fuzzy
 msgid "Escape sequences"
-msgstr "Secuencia de escape"
+msgstr "Secuencias de escape"
 
 #: ../Doc/reference/lexical_analysis.rst:553
 msgid ""
@@ -1033,7 +1062,7 @@ msgstr "ASCII Sangría vertical (VT)"
 
 #: ../Doc/reference/lexical_analysis.rst:582
 msgid ":samp:`\\\\\\\\{ooo}`"
-msgstr ""
+msgstr ":samp:`\\\\\\\\{ooo}`"
 
 #: ../Doc/reference/lexical_analysis.rst:582
 msgid "Character with octal value *ooo*"
@@ -1045,7 +1074,7 @@ msgstr "(2,4)"
 
 #: ../Doc/reference/lexical_analysis.rst:585
 msgid ":samp:`\\\\x{hh}`"
-msgstr ""
+msgstr ":samp:`\\\\x{hh}`"
 
 #: ../Doc/reference/lexical_analysis.rst:585
 msgid "Character with hex value *hh*"
@@ -1063,7 +1092,7 @@ msgstr ""
 
 #: ../Doc/reference/lexical_analysis.rst:593
 msgid ":samp:`\\\\N\\\\{{name}\\\\}`"
-msgstr ""
+msgstr ":samp:`\\\\N\\\\{{nombre}\\\\}`"
 
 #: ../Doc/reference/lexical_analysis.rst:593
 msgid "Character named *name* in the Unicode database"
@@ -1075,7 +1104,7 @@ msgstr "\\(5)"
 
 #: ../Doc/reference/lexical_analysis.rst:596
 msgid ":samp:`\\\\u{xxxx}`"
-msgstr ""
+msgstr ":samp:`\\\\u{xxxx}`"
 
 #: ../Doc/reference/lexical_analysis.rst:596
 msgid "Character with 16-bit hex value *xxxx*"
@@ -1086,9 +1115,8 @@ msgid "\\(6)"
 msgstr "\\(6)"
 
 #: ../Doc/reference/lexical_analysis.rst:599
-#, fuzzy
 msgid ":samp:`\\\\U{xxxxxxxx}`"
-msgstr "``\\Uxxxxxxxx``"
+msgstr ":samp:`\\\\U{xxxxxxxx}`"
 
 #: ../Doc/reference/lexical_analysis.rst:599
 msgid "Character with 32-bit hex value *xxxxxxxx*"
@@ -1114,6 +1142,9 @@ msgid ""
 "... backslashes or newline characters.'\n"
 "'This string will not include backslashes or newline characters.'"
 msgstr ""
+">>> 'Esta cadena no incluirá \\\n"
+"... caracteres de barra invertida o nueva linea.'\n"
+"'Esta cadena no incluirá caracteres de barra invertida o nueva linea.'"
 
 #: ../Doc/reference/lexical_analysis.rst:612
 msgid ""
@@ -1130,25 +1161,22 @@ msgid "As in Standard C, up to three octal digits are accepted."
 msgstr "Como en C estándar, se aceptan hasta tres dígitos octales."
 
 #: ../Doc/reference/lexical_analysis.rst:619
-#, fuzzy
 msgid ""
 "Octal escapes with value larger than ``0o377`` produce a :exc:"
 "`DeprecationWarning`."
 msgstr ""
 "Los escapes octales con un valor mayor que ``0o377`` producen un :exc:"
-"`DeprecationWarning`. En una futura versión de Python, serán un :exc:"
-"`SyntaxWarning` y eventualmente un :exc:`SyntaxError`."
+"`DeprecationWarning`."
 
 #: ../Doc/reference/lexical_analysis.rst:623
-#, fuzzy
 msgid ""
 "Octal escapes with value larger than ``0o377`` produce a :exc:"
 "`SyntaxWarning`. In a future Python version they will be eventually a :exc:"
 "`SyntaxError`."
 msgstr ""
 "Los escapes octales con un valor mayor que ``0o377`` producen un :exc:"
-"`DeprecationWarning`. En una futura versión de Python, serán un :exc:"
-"`SyntaxWarning` y eventualmente un :exc:`SyntaxError`."
+"`DeprecationWarning`. En una futura versión de Python, serán eventualmente "
+"un :exc:`SyntaxError`."
 
 #: ../Doc/reference/lexical_analysis.rst:629
 msgid "Unlike in Standard C, exactly two hex digits are required."
@@ -1202,16 +1230,15 @@ msgstr ""
 #: ../Doc/reference/lexical_analysis.rst:657
 msgid "Unrecognized escape sequences produce a :exc:`DeprecationWarning`."
 msgstr ""
+"Secuencias de escape no conocidos se producen una :exc:`DeprecationWarning`."
 
 #: ../Doc/reference/lexical_analysis.rst:660
-#, fuzzy
 msgid ""
 "Unrecognized escape sequences produce a :exc:`SyntaxWarning`. In a future "
 "Python version they will be eventually a :exc:`SyntaxError`."
 msgstr ""
-"Las secuencias de escape no reconocidas producen un :exc:"
-"`DeprecationWarning`.  En una futura versión de Python serán un :exc:"
-"`SyntaxWarning` y eventualmente un :exc:`SyntaxError`."
+"Las secuencias de escape no reconocidas producen un :exc:`SyntaxWarning`.  "
+"En una futura versión de Python serán eventualmente un :exc:`SyntaxError`."
 
 #: ../Doc/reference/lexical_analysis.rst:664
 msgid ""
@@ -1264,6 +1291,9 @@ msgid ""
 "           \"[A-Za-z0-9_]*\"   # letter, digit or underscore\n"
 "          )"
 msgstr ""
+"re.compile(\"[A-Za-z_]\"       # letter or underscore\n"
+"           \"[A-Za-z0-9_]*\"   # letter, digit or underscore\n"
+"          )"
 
 #: ../Doc/reference/lexical_analysis.rst:690
 msgid ""
@@ -1284,7 +1314,7 @@ msgstr ""
 
 #: ../Doc/reference/lexical_analysis.rst:713
 msgid "f-strings"
-msgstr ""
+msgstr "f-strings"
 
 #: ../Doc/reference/lexical_analysis.rst:717
 msgid ""
@@ -1334,7 +1364,6 @@ msgstr ""
 "corchete de cierre ``'}'``."
 
 #: ../Doc/reference/lexical_analysis.rst:747
-#, fuzzy
 msgid ""
 "Expressions in formatted string literals are treated like regular Python "
 "expressions surrounded by parentheses, with a few exceptions. An empty "
@@ -1351,10 +1380,13 @@ msgstr ""
 "expresiones regulares de Python rodeadas de paréntesis, con algunas "
 "excepciones. Una expresión vacía no está permitida, y tanto :keyword:"
 "`lambda` como las expresiones de asignación ``:=`` deben estar rodeadas de "
-"paréntesis explícitos. Las expresiones de sustitución pueden contener saltos "
-"de línea (por ejemplo, en cadenas de tres comillas), pero no pueden contener "
-"comentarios.  Cada expresión se evalúa en el contexto en el que aparece el "
-"literal de cadena formateado, en orden de izquierda a derecha."
+"paréntesis explícitos. Cada expresión se evalúa en el contexto donde aparece "
+"el literal de cadena, en orden desde la izquierda a la derecha.  Las "
+"expresiones de sustitución pueden contener saltos de línea en cadenas f de "
+"dos y tres comillas y pueden contener comentarios. Todo que viene después de "
+"un ``#`` dentro de un campo de reemplazo es un comentario (incluso llaves de "
+"cerramiento y comillas). En ese caso, campos de reemplazo deben ser cerrados "
+"en una linea diferente."
 
 #: ../Doc/reference/lexical_analysis.rst:758
 msgid ""
@@ -1362,6 +1394,9 @@ msgid ""
 "... + 3}\"\n"
 "'abc5'"
 msgstr ""
+">>> f\"abc{a # Es un comentario }\"\n"
+"... + 3}\"\n"
+"'abc5'"
 
 #: ../Doc/reference/lexical_analysis.rst:764
 msgid ""
@@ -1379,6 +1414,8 @@ msgid ""
 "Prior to Python 3.12, comments were not allowed inside f-string replacement "
 "fields."
 msgstr ""
+"Antes de Python 3.12, comentarios no se permitieron dentro de campos de "
+"reemplazo de f-string."
 
 #: ../Doc/reference/lexical_analysis.rst:773
 msgid ""
@@ -1414,7 +1451,6 @@ msgstr ""
 "`ascii`."
 
 #: ../Doc/reference/lexical_analysis.rst:788
-#, fuzzy
 msgid ""
 "The result is then formatted using the :func:`format` protocol.  The format "
 "specifier is passed to the :meth:`~object.__format__` method of the "
@@ -1422,11 +1458,11 @@ msgid ""
 "specifier is omitted.  The formatted result is then included in the final "
 "value of the whole string."
 msgstr ""
-"El resultado es entonces formateado usando el protocolo :func:`format`.  El "
+"El resultado es entonces formateado usando el protocolo :func:`format`. El "
 "especificador de formato se pasa al método :meth:`__format__` del resultado "
-"de la expresión o conversión.  Se pasa una cadena vacía cuando se omite el "
-"especificador de formato.  El resultado formateado se incluye entonces en el "
-"valor final de toda la cadena."
+"de la expresión o conversión. Se pasa una cadena de caracteres vacía cuando "
+"se omite el especificador de formato. El resultado formateado se incluye "
+"entonces en el valor final de toda la cadena de caracteres."
 
 #: ../Doc/reference/lexical_analysis.rst:794
 msgid ""
@@ -1487,12 +1523,44 @@ msgid ""
 ">>> f\"{line = !r:20}\"\n"
 "'line = \"The mill\\'s closed\" '"
 msgstr ""
+">>> nombre = \"Fred\"\n"
+">>> f\"Dijo su nombre es {nombre!r}.\"\n"
+"\"Dijo su nombre es 'Fred'.\"\n"
+">>> f\"Dijo su nombre es {repr(nombre)}.\"  # repr() es equivalente a !r\n"
+"\"Dijo su nombre es 'Fred'.\"\n"
+">>> ancho = 10\n"
+">>> precisión = 4\n"
+">>> valor = decimal.Decimal(\"12.34567\")\n"
+">>> f\"resultado: {valor:{ancho}.{precisión}}\"  # campos anidados\n"
+"'resultado:      12.35'\n"
+">>> hoy = datetime(year=2017, month=1, day=27)\n"
+">>> f\"{hoy:%B %d, %Y}\"  # usando el especificador de formato de fecha\n"
+"'January 27, 2017'\n"
+">>> f\"{hoy=:%B %d, %Y}\" # usando el especificador de formato de fecha y "
+"depuración\n"
+"'hoy=January 27, 2017'\n"
+">>> numero = 1024\n"
+">>> f\"{numero:#0x}\"  #  usando el especificador de formato de numero "
+"entero\n"
+"'0x400'\n"
+">>> foo = \"bar\"\n"
+">>> f\"{ foo = }\" # conserva los espacios en blanco\n"
+"\" foo = 'bar'\"\n"
+">>> linea  = \"The mill's closed\"\n"
+">>> f\"{linea = }\"\n"
+"'linea = \"The mill\\'s closed\"'\n"
+">>> f\"{linea = :20}\"\n"
+"\"line = The mill's closed   \"\n"
+">>> f\"{line = !r:20}\"\n"
+"'line = \"The mill\\'s closed\" '"
 
 #: ../Doc/reference/lexical_analysis.rst:835
 msgid ""
 "Reusing the outer f-string quoting type inside a replacement field is "
 "permitted::"
 msgstr ""
+"Se puede reutilizar el tipo de comilla del f-string exterior dentro de un "
+"campo de reemplazo::"
 
 #: ../Doc/reference/lexical_analysis.rst:838
 msgid ""
@@ -1500,18 +1568,25 @@ msgid ""
 ">>> f\"abc {a[\"x\"]} def\"\n"
 "'abc 2 def'"
 msgstr ""
+">>> a = dict(x=2)\n"
+">>> f\"abc {a[\"x\"]} def\"\n"
+"'abc 2 def'"
 
 #: ../Doc/reference/lexical_analysis.rst:842
 msgid ""
 "Prior to Python 3.12, reuse of the same quoting type of the outer f-string "
 "inside a replacement field was not possible."
 msgstr ""
+"Antes de Python 3.12, no era posible reutilizar el mismo tipo de comilla del "
+"f-string exterior dentro de un campo de reemplazo."
 
 #: ../Doc/reference/lexical_analysis.rst:846
 msgid ""
 "Backslashes are also allowed in replacement fields and are evaluated the "
 "same way as in any other context::"
 msgstr ""
+"También se permiten barras invertidas en campos de reemplazo y se evalúan de "
+"la misma manera que cualquier otro contexto::"
 
 #: ../Doc/reference/lexical_analysis.rst:849
 msgid ""
@@ -1522,12 +1597,20 @@ msgid ""
 "b\n"
 "c"
 msgstr ""
+">>> a = [\"a\", \"b\", \"c\"]\n"
+">>> print(f\"Lista a contiene:\\n{\"\\n\".join(a)}\")\n"
+"Lista a contiene:\n"
+"a\n"
+"b\n"
+"c"
 
 #: ../Doc/reference/lexical_analysis.rst:856
 msgid ""
 "Prior to Python 3.12, backslashes were not permitted inside an f-string "
 "replacement field."
 msgstr ""
+"Antes de Python 3.12, no se permitieron dentro de una campo de reemplazo f-"
+"string."
 
 #: ../Doc/reference/lexical_analysis.rst:860
 msgid ""
@@ -1545,6 +1628,11 @@ msgid ""
 ">>> foo.__doc__ is None\n"
 "True"
 msgstr ""
+">>> def foo():\n"
+"...     f\"Not a docstring\"\n"
+"...\n"
+">>> foo.__doc__ is None\n"
+"True"
 
 #: ../Doc/reference/lexical_analysis.rst:871
 msgid ""
@@ -1560,7 +1648,6 @@ msgid "Numeric literals"
 msgstr "Literales numéricos"
 
 #: ../Doc/reference/lexical_analysis.rst:884
-#, fuzzy
 msgid ""
 "There are three types of numeric literals: integers, floating-point numbers, "
 "and imaginary numbers.  There are no complex literals (complex numbers can "
@@ -1629,6 +1716,9 @@ msgid ""
 "3     79228162514264337593543950336     0o377    0xdeadbeef\n"
 "      100_000_000_000                   0b_1110_0101"
 msgstr ""
+"7     2147483647                        0o177    0b100110111\n"
+"3     79228162514264337593543950336     0o377    0xdeadbeef\n"
+"      100_000_000_000                   0b_1110_0101"
 
 #: ../Doc/reference/lexical_analysis.rst:935
 #: ../Doc/reference/lexical_analysis.rst:967
@@ -1636,12 +1726,10 @@ msgid "Underscores are now allowed for grouping purposes in literals."
 msgstr "Los guiones bajos están ahora permitidos para agrupar en literales."
 
 #: ../Doc/reference/lexical_analysis.rst:946
-#, fuzzy
 msgid "Floating-point literals"
 msgstr "Literales de punto flotante"
 
 #: ../Doc/reference/lexical_analysis.rst:948
-#, fuzzy
 msgid ""
 "Floating-point literals are described by the following lexical definitions:"
 msgstr ""
@@ -1649,7 +1737,6 @@ msgstr ""
 "léxicas:"
 
 #: ../Doc/reference/lexical_analysis.rst:958
-#, fuzzy
 msgid ""
 "Note that the integer and exponent parts are always interpreted using radix "
 "10. For example, ``077e010`` is legal, and denotes the same number as "
@@ -1664,13 +1751,12 @@ msgstr ""
 "guiones bajos para la agrupación de dígitos."
 
 #: ../Doc/reference/lexical_analysis.rst:963
-#, fuzzy
 msgid "Some examples of floating-point literals::"
 msgstr "Algunos ejemplos de literales de punto flotante::"
 
 #: ../Doc/reference/lexical_analysis.rst:965
 msgid "3.14    10.    .001    1e100    3.14e-10    0e0    3.14_15_93"
-msgstr ""
+msgstr "3.14    10.    .001    1e100    3.14e-10    0e0    3.14_15_93"
 
 #: ../Doc/reference/lexical_analysis.rst:976
 msgid "Imaginary literals"
@@ -1683,7 +1769,6 @@ msgstr ""
 "léxicas:"
 
 #: ../Doc/reference/lexical_analysis.rst:983
-#, fuzzy
 msgid ""
 "An imaginary literal yields a complex number with a real part of 0.0.  "
 "Complex numbers are represented as a pair of floating-point numbers and have "
@@ -1699,7 +1784,7 @@ msgstr ""
 
 #: ../Doc/reference/lexical_analysis.rst:989
 msgid "3.14j   10.j    10j     .001j   1e100j   3.14e-10j   3.14_15_93j"
-msgstr ""
+msgstr "3.14j   10.j    10j     .001j   1e100j   3.14e-10j   3.14_15_93j"
 
 #: ../Doc/reference/lexical_analysis.rst:995
 msgid "Operators"
@@ -1715,6 +1800,9 @@ msgid ""
 "<<      >>      &       |       ^       ~       :=\n"
 "<       >       <=      >=      ==      !="
 msgstr ""
+"+       -       *       **      /       //      %      @\n"
+"<<      >>      &       |       ^       ~       :=\n"
+"<       >       <=      >=      ==      !="
 
 #: ../Doc/reference/lexical_analysis.rst:1012
 msgid "Delimiters"
@@ -1731,6 +1819,10 @@ msgid ""
 "->      +=      -=      *=      /=      //=     %=\n"
 "@=      &=      |=      ^=      >>=     <<=     **="
 msgstr ""
+"(       )       [       ]       {       }\n"
+",       :       !       .       ;       @       =\n"
+"->      +=      -=      *=      /=      //=     %=\n"
+"@=      &=      |=      ^=      >>=     <<=     **="
 
 #: ../Doc/reference/lexical_analysis.rst:1025
 msgid ""
@@ -1756,7 +1848,7 @@ msgstr ""
 
 #: ../Doc/reference/lexical_analysis.rst:1033
 msgid "'       \"       #       \\"
-msgstr ""
+msgstr "'       \"       #       \\"
 
 #: ../Doc/reference/lexical_analysis.rst:1037
 msgid ""
@@ -1769,479 +1861,436 @@ msgstr ""
 
 #: ../Doc/reference/lexical_analysis.rst:1040
 msgid "$       ?       `"
-msgstr ""
+msgstr "$       ?       `"
 
 #: ../Doc/reference/lexical_analysis.rst:1046
 msgid "Footnotes"
 msgstr "Notas al pie de página"
 
 #: ../Doc/reference/lexical_analysis.rst:1047
-#, fuzzy
 msgid "https://www.unicode.org/Public/15.1.0/ucd/NameAliases.txt"
 msgstr "https://www.unicode.org/Public/11.0.0/ucd/NameAliases.txt"
 
 #: ../Doc/reference/lexical_analysis.rst:8
-#, fuzzy
 msgid "lexical analysis"
-msgstr "Análisis léxico"
+msgstr "análisis léxico"
 
 #: ../Doc/reference/lexical_analysis.rst:8
 msgid "parser"
-msgstr ""
+msgstr "analizador"
 
 #: ../Doc/reference/lexical_analysis.rst:8
 msgid "token"
-msgstr ""
+msgstr "token"
 
 #: ../Doc/reference/lexical_analysis.rst:25
-#, fuzzy
 msgid "line structure"
-msgstr "Estructura de línea"
+msgstr "estructura de línea"
 
 #: ../Doc/reference/lexical_analysis.rst:35
-#, fuzzy
 msgid "logical line"
-msgstr "Líneas lógicas"
+msgstr "líneas lógica"
 
 #: ../Doc/reference/lexical_analysis.rst:35
 #: ../Doc/reference/lexical_analysis.rst:114
 #: ../Doc/reference/lexical_analysis.rst:532
-#, fuzzy
 msgid "physical line"
-msgstr "Líneas físicas"
+msgstr "línea física"
 
 #: ../Doc/reference/lexical_analysis.rst:35
 #: ../Doc/reference/lexical_analysis.rst:114
-#, fuzzy
 msgid "line joining"
-msgstr "Unión implícita de líneas"
+msgstr "unión de líneas"
 
 #: ../Doc/reference/lexical_analysis.rst:35
 msgid "NEWLINE token"
-msgstr ""
+msgstr "NEWLINE token"
 
 #: ../Doc/reference/lexical_analysis.rst:67
-#, fuzzy
 msgid "comment"
-msgstr "Comentarios"
+msgstr "comentario"
 
 #: ../Doc/reference/lexical_analysis.rst:67
 msgid "hash character"
-msgstr ""
+msgstr "carácter hash"
 
 #: ../Doc/reference/lexical_analysis.rst:67
 #: ../Doc/reference/lexical_analysis.rst:81
 msgid "# (hash)"
-msgstr ""
+msgstr "# (hash)"
 
 #: ../Doc/reference/lexical_analysis.rst:81
 msgid "source character set"
-msgstr ""
+msgstr "conjuntos de caracteres fuente"
 
 #: ../Doc/reference/lexical_analysis.rst:81
-#, fuzzy
 msgid "encoding declarations (source file)"
-msgstr "Declaración de Codificación"
+msgstr "declaraciones de codificación (archivo de origen)"
 
 #: ../Doc/reference/lexical_analysis.rst:81
-#, fuzzy
 msgid "source encoding declaration"
-msgstr "Declaración de Codificación"
+msgstr "declaración de codificación de archivo de origen"
 
 #: ../Doc/reference/lexical_analysis.rst:114
-#, fuzzy
 msgid "line continuation"
-msgstr "Sangría"
+msgstr "continuación de linea"
 
 #: ../Doc/reference/lexical_analysis.rst:114
 msgid "backslash character"
-msgstr ""
+msgstr "carácter barra invertida"
 
 #: ../Doc/reference/lexical_analysis.rst:159
-#, fuzzy
 msgid "blank line"
-msgstr "Líneas en blanco"
+msgstr "línea en blanco"
 
 #: ../Doc/reference/lexical_analysis.rst:174
-#, fuzzy
 msgid "indentation"
-msgstr "Sangría"
+msgstr "sangría"
 
 #: ../Doc/reference/lexical_analysis.rst:174
 msgid "leading whitespace"
-msgstr ""
+msgstr "espacios en blanco del comienzo"
 
 #: ../Doc/reference/lexical_analysis.rst:174
 msgid "space"
-msgstr ""
+msgstr "espacio"
 
 #: ../Doc/reference/lexical_analysis.rst:174
 msgid "tab"
-msgstr ""
+msgstr "tabulador"
 
 #: ../Doc/reference/lexical_analysis.rst:174
 msgid "grouping"
-msgstr ""
+msgstr "agrupación"
 
 #: ../Doc/reference/lexical_analysis.rst:174
 msgid "statement grouping"
-msgstr ""
+msgstr "agrupación de declaraciones"
 
 #: ../Doc/reference/lexical_analysis.rst:202
-#, fuzzy
 msgid "INDENT token"
-msgstr "Sangría"
+msgstr "INDENT token"
 
 #: ../Doc/reference/lexical_analysis.rst:202
-#, fuzzy
 msgid "DEDENT token"
-msgstr "Sangría"
+msgstr "DEDENT token"
 
 #: ../Doc/reference/lexical_analysis.rst:277
-#, fuzzy
 msgid "identifier"
-msgstr "Delimitadores"
+msgstr "identificadores"
 
 #: ../Doc/reference/lexical_analysis.rst:277
 msgid "name"
-msgstr ""
+msgstr "nombre"
 
 #: ../Doc/reference/lexical_analysis.rst:334
 #: ../Doc/reference/lexical_analysis.rst:358
-#, fuzzy
 msgid "keyword"
-msgstr "Palabras clave"
+msgstr "palabra clave"
 
 #: ../Doc/reference/lexical_analysis.rst:334
 msgid "reserved word"
-msgstr ""
+msgstr "palabra reservada"
 
 #: ../Doc/reference/lexical_analysis.rst:358
-#, fuzzy
 msgid "soft keyword"
-msgstr "Palabras clave suaves"
+msgstr "palabra clave suave"
 
 #: ../Doc/reference/lexical_analysis.rst:377
 msgid "_, identifiers"
-msgstr ""
+msgstr "_, identificadores"
 
 #: ../Doc/reference/lexical_analysis.rst:377
 msgid "__, identifiers"
-msgstr ""
+msgstr "__, identificadores"
 
 #: ../Doc/reference/lexical_analysis.rst:433
-#, fuzzy
 msgid "literal"
-msgstr "Literales"
+msgstr "literal"
 
 #: ../Doc/reference/lexical_analysis.rst:433
 msgid "constant"
-msgstr ""
+msgstr "constante"
 
 #: ../Doc/reference/lexical_analysis.rst:438
 #: ../Doc/reference/lexical_analysis.rst:479
-#, fuzzy
 msgid "string literal"
-msgstr "Literales enteros"
+msgstr "literal cadena"
 
 #: ../Doc/reference/lexical_analysis.rst:438
 #: ../Doc/reference/lexical_analysis.rst:492
-#, fuzzy
 msgid "bytes literal"
-msgstr "Literales enteros"
+msgstr "literal bytes"
 
 #: ../Doc/reference/lexical_analysis.rst:438
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: ../Doc/reference/lexical_analysis.rst:438
-#, fuzzy
 msgid "' (single quote)"
-msgstr "Comilla simple (``'``)"
+msgstr "' (comilla simple)"
 
 #: ../Doc/reference/lexical_analysis.rst:438
-#, fuzzy
 msgid "\" (double quote)"
-msgstr "Comilla doble (``\"``)"
+msgstr "\" (comilla doble)"
 
 #: ../Doc/reference/lexical_analysis.rst:438
 msgid "u'"
-msgstr ""
+msgstr "u'"
 
 #: ../Doc/reference/lexical_analysis.rst:438
 msgid "u\""
-msgstr ""
+msgstr "u\""
 
 #: ../Doc/reference/lexical_analysis.rst:479
 msgid "triple-quoted string"
-msgstr ""
+msgstr "cadena de caracteres con tres comillas"
 
 #: ../Doc/reference/lexical_analysis.rst:479
 msgid "Unicode Consortium"
-msgstr ""
+msgstr "Consorcio de Unicode"
 
 #: ../Doc/reference/lexical_analysis.rst:479
 msgid "raw string"
-msgstr ""
+msgstr "cadena sin formato"
 
 #: ../Doc/reference/lexical_analysis.rst:479
 msgid "\"\"\""
-msgstr ""
+msgstr "\"\"\""
 
 #: ../Doc/reference/lexical_analysis.rst:479
 msgid "'''"
-msgstr ""
+msgstr "'''"
 
 #: ../Doc/reference/lexical_analysis.rst:492
 msgid "b'"
-msgstr ""
+msgstr "b'"
 
 #: ../Doc/reference/lexical_analysis.rst:492
 msgid "b\""
-msgstr ""
+msgstr "b\""
 
 #: ../Doc/reference/lexical_analysis.rst:501
 msgid "r'"
-msgstr ""
+msgstr "r'"
 
 #: ../Doc/reference/lexical_analysis.rst:501
-#, fuzzy
 msgid "raw string literal"
-msgstr "Literales de cadena formateados"
+msgstr "literal de cadena de caracteres sin formato"
 
 #: ../Doc/reference/lexical_analysis.rst:501
 msgid "r\""
-msgstr ""
+msgstr "r\""
 
 #: ../Doc/reference/lexical_analysis.rst:519
 msgid "f'"
-msgstr ""
+msgstr "f'"
 
 #: ../Doc/reference/lexical_analysis.rst:519
 #: ../Doc/reference/lexical_analysis.rst:697
-#, fuzzy
 msgid "formatted string literal"
-msgstr "Literales de cadena formateados"
+msgstr "literal de cadena de caracteres formateados"
 
 #: ../Doc/reference/lexical_analysis.rst:519
 msgid "f\""
-msgstr ""
+msgstr "f\""
 
 #: ../Doc/reference/lexical_analysis.rst:532
-#, fuzzy
 msgid "escape sequence"
-msgstr "Secuencia de escape"
+msgstr "secuencia de escape"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "Standard C"
-msgstr ""
+msgstr "C Estándar"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: ../Doc/reference/lexical_analysis.rst:532
-#, fuzzy
 msgid "\\ (backslash)"
-msgstr "Barra inversa (``\\``)"
+msgstr "\\ (barra inversa)"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\\\"
-msgstr ""
+msgstr "\\\\"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\a"
-msgstr ""
+msgstr "\\a"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\b"
-msgstr ""
+msgstr "\\b"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\f"
-msgstr ""
+msgstr "\\f"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\n"
-msgstr ""
+msgstr "\\n"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\r"
-msgstr ""
+msgstr "\\r"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\t"
-msgstr ""
+msgstr "\\t"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\v"
-msgstr ""
+msgstr "\\v"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\x"
-msgstr ""
+msgstr "\\x"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\N"
-msgstr ""
+msgstr "\\N"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\u"
-msgstr ""
+msgstr "\\u"
 
 #: ../Doc/reference/lexical_analysis.rst:532
 msgid "\\U"
-msgstr ""
+msgstr "\\U"
 
 #: ../Doc/reference/lexical_analysis.rst:648
-#, fuzzy
 msgid "unrecognized escape sequence"
-msgstr "Secuencia de escape"
+msgstr "secuencia de escape no reconocido"
 
 #: ../Doc/reference/lexical_analysis.rst:697
-#, fuzzy
 msgid "interpolated string literal"
-msgstr "Literales de cadena formateados"
+msgstr "literal de cadena de caracteres interpolado"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid "string"
-msgstr ""
+msgstr "cadena de caracteres"
 
 #: ../Doc/reference/lexical_analysis.rst:697
-#, fuzzy
 msgid "formatted literal"
-msgstr "Literales de cadena formateados"
+msgstr "literal formateado"
 
 #: ../Doc/reference/lexical_analysis.rst:697
-#, fuzzy
 msgid "interpolated literal"
-msgstr "Literales enteros"
+msgstr "literal interpolado"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid "f-string"
-msgstr ""
+msgstr "f-string"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid "fstring"
-msgstr ""
+msgstr "fstring"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid "{} (curly brackets)"
-msgstr ""
+msgstr "{} (llaves)"
 
 #: ../Doc/reference/lexical_analysis.rst:697
-#, fuzzy
 msgid "in formatted string literal"
-msgstr "Literales de cadena formateados"
+msgstr "en literal de cadena de caracteres formateados"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid "! (exclamation)"
-msgstr ""
+msgstr "! (exclamación)"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid ": (colon)"
-msgstr ""
+msgstr ": (dos puntos)"
 
 #: ../Doc/reference/lexical_analysis.rst:697
 msgid "= (equals)"
-msgstr ""
+msgstr "= (signo igual)"
 
 #: ../Doc/reference/lexical_analysis.rst:697
-#, fuzzy
 msgid "for help in debugging using string literals"
-msgstr "Literales de cadena formateados"
+msgstr "para ayuda en la depuración usando literales de cadena"
 
 #: ../Doc/reference/lexical_analysis.rst:880
 msgid "number"
-msgstr ""
+msgstr "numero"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "numeric literal"
-msgstr "Literales numéricos"
+msgstr "literal numérico"
 
 #: ../Doc/reference/lexical_analysis.rst:880
 #: ../Doc/reference/lexical_analysis.rst:893
-#, fuzzy
 msgid "integer literal"
-msgstr "Literales enteros"
+msgstr "literal numero entero"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "floating-point literal"
-msgstr "Literales de punto flotante"
+msgstr "literales de punto flotante"
 
 #: ../Doc/reference/lexical_analysis.rst:880
 msgid "hexadecimal literal"
-msgstr ""
+msgstr "literal hexadecimal"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "octal literal"
-msgstr "Literales"
+msgstr "literal octal"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "binary literal"
-msgstr "Literales imaginarios"
+msgstr "literal binario"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "decimal literal"
-msgstr "Literales imaginarios"
+msgstr "literal decimal"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "imaginary literal"
-msgstr "Literales imaginarios"
+msgstr "literal imaginario"
 
 #: ../Doc/reference/lexical_analysis.rst:880
-#, fuzzy
 msgid "complex literal"
-msgstr "Literales numéricos"
+msgstr "literal complejo"
 
 #: ../Doc/reference/lexical_analysis.rst:893
 msgid "0b"
-msgstr ""
+msgstr "0b"
 
 #: ../Doc/reference/lexical_analysis.rst:893
 msgid "0o"
-msgstr ""
+msgstr "0o"
 
 #: ../Doc/reference/lexical_analysis.rst:893
 msgid "0x"
-msgstr ""
+msgstr "0x"
 
 #: ../Doc/reference/lexical_analysis.rst:893
 #: ../Doc/reference/lexical_analysis.rst:939
 msgid "_ (underscore)"
-msgstr ""
+msgstr "_ (guión bajo)"
 
 #: ../Doc/reference/lexical_analysis.rst:893
 #: ../Doc/reference/lexical_analysis.rst:939
 #: ../Doc/reference/lexical_analysis.rst:971
-#, fuzzy
 msgid "in numeric literal"
-msgstr "Literales numéricos"
+msgstr "en literal numérico"
 
 #: ../Doc/reference/lexical_analysis.rst:939
 msgid ". (dot)"
-msgstr ""
+msgstr ". (punto)"
 
 #: ../Doc/reference/lexical_analysis.rst:939
 msgid "e"
-msgstr ""
+msgstr "e"
 
 #: ../Doc/reference/lexical_analysis.rst:971
 msgid "j"
-msgstr ""
+msgstr "j"
 
 #: ../Doc/reference/lexical_analysis.rst:997
-#, fuzzy
 msgid "operators"
-msgstr "Operadores"
+msgstr "operadores"
 
 #: ../Doc/reference/lexical_analysis.rst:1014
-#, fuzzy
 msgid "delimiters"
-msgstr "Delimitadores"
+msgstr "delimitadores"
