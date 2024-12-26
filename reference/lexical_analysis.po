@@ -213,7 +213,7 @@ msgid ""
 msgstr ""
 "if 1900 < year < 2100 and 1 <= month <= 12 \\\n"
 "   and 1 <= day <= 31 and 0 <= hour < 24 \\\n"
-"   and 0 <= minute < 60 and 0 <= second < 60:   # Looks like a valid date\n"
+"   and 0 <= minute < 60 and 0 <= second < 60:   # Parece ser una fecha válida \n"
 "        return 1"
 
 #: ../Doc/reference/lexical_analysis.rst:127
