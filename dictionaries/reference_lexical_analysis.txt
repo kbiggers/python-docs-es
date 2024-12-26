@@ -16,3 +16,7 @@ month
 year
 day
 mill
+his
+said
+hour
+second
