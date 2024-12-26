@@ -1230,7 +1230,7 @@ msgstr ""
 #: ../Doc/reference/lexical_analysis.rst:657
 msgid "Unrecognized escape sequences produce a :exc:`DeprecationWarning`."
 msgstr ""
-"Secuencias de escape no conocidos se producen una :exc:`DeprecationWarning`."
+"Secuencias de escape no conocidas producen un :exc:`DeprecationWarning`."
 
 #: ../Doc/reference/lexical_analysis.rst:660
 msgid ""
