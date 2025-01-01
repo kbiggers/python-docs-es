@@ -244,6 +244,8 @@ msgstr ""
 "sobrescribe todas las asignaciones anteriores a esas variables, incluidas "
 "las realizadas en la suite del bucle ``for``::"
 
+# No se pueden traducir los commentarios hasta que pospell tenga la habilidad
+# de entender líneas de código.
 #: ../Doc/reference/compound_stmts.rst:183
 msgid ""
 "for i in range(10):\n"
@@ -254,9 +256,9 @@ msgid ""
 msgstr ""
 "for i in range(10):\n"
 "    print(i)\n"
-"    i = 5             # esto no afectará los bucles `for`\n"
-"                      # porque i se sobrescribirá con el próximo\n"
-"                      # índice en el rango"
+"    i = 5             # this will not affect the for-loop\n"
+"                      # because i will be overwritten with the next\n"
+"                      # index in the range"
 
 #: ../Doc/reference/compound_stmts.rst:193
 msgid ""
@@ -604,8 +606,8 @@ msgid ""
 "same :keyword:`try`. :keyword:`break`, :keyword:`continue` and :keyword:"
 "`return` cannot appear in an :keyword:`!except*` clause."
 msgstr ""
-"No se puede mesclar :keyword:`except` and :keyword:`!except*`en el mismo :"
-"keyword:`try`. :keyword:`break`, :keyword:`continue` y :keyword:`return` no "
+"No se puede mezclar :keyword:`except` y :keyword:`!except*` en el mismo "
+":keyword:`try`, :keyword:`break`, :keyword:`continue` y :keyword:`return` no "
 "puede aparecer en una cláusula :keyword:`!except*`."
 
 #: ../Doc/reference/compound_stmts.rst:399
@@ -777,7 +779,7 @@ msgstr ""
 #: ../Doc/reference/compound_stmts.rst:495
 msgid "The context manager's :meth:`~object.__exit__` is loaded for later use."
 msgstr ""
-"El administrador de contexto :meth:`__exit__` se carga para su uso posterior."
+"El administrador de contexto :meth:`~object.__exit__` se carga para su uso posterior."
 
 #: ../Doc/reference/compound_stmts.rst:497
 msgid "The context manager's :meth:`~object.__enter__` method is invoked."
@@ -788,7 +790,7 @@ msgid ""
 "If a target was included in the :keyword:`with` statement, the return value "
 "from :meth:`~object.__enter__` is assigned to it."
 msgstr ""
-"Si se incluyó el destino en la delcaración :keyword:`with`, se le asigna el "
+"Si se incluyó el destino en la declaración :keyword:`with`, se le asigna el "
 "valor de retorno de :meth:`__enter__`."
 
 #: ../Doc/reference/compound_stmts.rst:504
@@ -841,7 +843,7 @@ msgid ""
 "the normal location for the kind of exit that was taken."
 msgstr ""
 "Si se salió de la suite por cualquier motivo que no sea una excepción, el "
-"valor de retorno de `~object.__exit__` se ignora y la ejecución continúa en "
+"valor de retorno de :meth:`~object.__exit__` se ignora y la ejecución continúa en "
 "la ubicación normal para el tipo de salida que se tomó."
 
 #: ../Doc/reference/compound_stmts.rst:526
@@ -2964,7 +2966,7 @@ msgid ""
 "Generic functions, classes, and type aliases have a :attr:`~definition."
 "__type_params__` attribute listing their type parameters."
 msgstr ""
-"Funciones genéricas, clases y aliases de tipo tienen un atributo :attr:`!"
+"Funciones genéricas, clases y aliases de tipo tienen un atributo ::attr:`~definition."
 "__type_params__` que lista sus parámetros de tipo."
 
 #: ../Doc/reference/compound_stmts.rst:1679
@@ -3190,6 +3192,8 @@ msgstr ""
 "Excepto para la :ref:`lazy-evaluation <lazy-evaluation>` del :class:`~typing."
 "TypeVar` vinculada, esto es equivalente a::"
 
+# No se pueden traducir los commentarios hasta que pospell tenga la habilidad
+# de entender líneas de código.
 #: ../Doc/reference/compound_stmts.rst:1772
 msgid ""
 "DEFAULT_OF_arg = some_default\n"
@@ -3217,7 +3221,7 @@ msgstr ""
 "\n"
 "    annotation-def BOUND_OF_T():\n"
 "        return int\n"
-"    # En realidad, BOUND_OF_T() se evaluá solamente a pedido.\n"
+"    # In reality, BOUND_OF_T() is evaluated only on demand.\n"
 "    T = typing.TypeVar(\"T\", bound=BOUND_OF_T())\n"
 "\n"
 "    Ts = typing.TypeVarTuple(\"Ts\")\n"
@@ -3345,6 +3349,8 @@ msgstr ""
 "Excepto para la :ref:`evaluación perezosa <lazy-evaluation>` del valor, esto "
 "es equivalente a::"
 
+# No se pueden traducir los commentarios hasta que pospell tenga la habilidad
+# de entender líneas de código.
 #: ../Doc/reference/compound_stmts.rst:1848
 msgid ""
 "annotation-def TYPE_PARAMS_OF_ListOrSet():\n"
@@ -3362,7 +3368,7 @@ msgstr ""
 "\n"
 "    annotation-def VALUE_OF_ListOrSet():\n"
 "        return list[T] | set[T]\n"
-"    # En realidad, el valor se evaluá perezosamente\n"
+"    # In reality, the value is lazily evaluated\n"
 "    return typing.TypeAliasType(\"ListOrSet\", VALUE_OF_ListOrSet(), "
 "type_params=(T,))\n"
 "ListOrSet = TYPE_PARAMS_OF_ListOrSet()"
