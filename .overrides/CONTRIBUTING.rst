@@ -60,13 +60,26 @@ podrás realizar todas las contribuciones que quieras.
 
 #. (Opcional) Instala los requerimientos del proyecto::
 
-     pip install -r requirements.txt
+     pip install -r requirements-own.txt
 
    .. note::
 
       Al tener instalado los requerimientos, podrás utilizas las herramientas
       ``powrap`` y ``pospell`` para poder verificar tus archivos traducidos,
       y también construir la documentación localmente.
+
+   .. note::
+      
+      Si vas a querer construir la documentación de una manera local, debes inicializar 
+      los submódulos para poder hacer la construcción. (nota: esta inicialización puede llevar tiempo) 
+      ```
+      git submodule update --init
+      pip install -r requirements.txt
+      ```
+      y después para hacer la construcción
+      ```
+      make build
+      ``` 
 
 .. _que-archivo-traducir:
 
