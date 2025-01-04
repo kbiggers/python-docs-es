@@ -42,7 +42,7 @@ podrás realizar todas las contribuciones que quieras.
 
 #. Clona el fork del repositorio que acabas de crear::
 
-     git clone --recursive git@github.com:<TU-USUARIO>/python-docs-es.git
+     git clone git@github.com:<TU-USUARIO>/python-docs-es.git
 
 #. Ingresa en la carpeta que `git clone` creó en tu computadora::
 
