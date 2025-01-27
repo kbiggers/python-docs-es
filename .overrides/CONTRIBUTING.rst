@@ -68,19 +68,6 @@ podrás realizar todas las contribuciones que quieras.
       ``powrap`` y ``pospell`` para poder verificar tus archivos traducidos,
       y también construir la documentación localmente.
 
-   .. note::
-      
-      Si vas a querer construir la documentación de una manera local, debes inicializar 
-      los submódulos para poder hacer la construcción. (nota: esta inicialización puede llevar tiempo) 
-      ```
-      git submodule update --init
-      pip install -r requirements.txt
-      ```
-      y después para hacer la construcción
-      ```
-      make build
-      ``` 
-
 .. _que-archivo-traducir:
 
 Paso 1: ¿Qué archivo traducir?
