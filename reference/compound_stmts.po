@@ -1832,7 +1832,7 @@ msgstr ""
 "argumentos del método ``get()`` del sujeto de asignación. Los pares clave-"
 "valor coincidentes ya deben estar presentes en la asignación y no deben "
 "crearse sobre la marcha a través de :meth:`__missing__` o :meth:"
-"`__getitem__`."
+"`~object.__getitem__`."
 
 #: ../Doc/reference/compound_stmts.rst:1064
 msgid ""
