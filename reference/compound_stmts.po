@@ -791,7 +791,7 @@ msgid ""
 "from :meth:`~object.__enter__` is assigned to it."
 msgstr ""
 "Si se incluyó el destino en la declaración :keyword:`with`, se le asigna el "
-"valor de retorno de :meth:`__enter__`."
+"valor de retorno de :meth:`~object.__enter__`."
 
 #: ../Doc/reference/compound_stmts.rst:504
 msgid ""
