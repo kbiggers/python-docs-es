@@ -607,7 +607,7 @@ msgid ""
 "`return` cannot appear in an :keyword:`!except*` clause."
 msgstr ""
 "No se puede mezclar :keyword:`except` y :keyword:`!except*` en el mismo "
-":keyword:`try`, :keyword:`break`, :keyword:`continue` y :keyword:`return` no "
+":keyword:`try`. :keyword:`break`, :keyword:`continue` y :keyword:`return` no "
 "puede aparecer en una cláusula :keyword:`!except*`."
 
 #: ../Doc/reference/compound_stmts.rst:399
