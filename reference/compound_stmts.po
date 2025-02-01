@@ -3067,7 +3067,7 @@ msgstr ""
 "este fin, el valor predeterminado se evalúa en un :ref:`annotation scope "
 "<annotation-scopes>` separado. Si no se especifica un valor predeterminado "
 "para un parámetro de tipo, el atributo ``__default__`` se establece en el "
-"objeto de centinela especial :data:`typing.NoDefault`.u"
+"objeto de centinela especial :data:`typing.NoDefault`."
 
 #: ../Doc/reference/compound_stmts.rst:1717
 msgid ""
