@@ -11,15 +11,16 @@ msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-21 16:38-0300\n"
-"PO-Revision-Date: 2022-10-27 03:12-0300\n"
+"PO-Revision-Date: 2025-02-02 10:07-0500\n"
 "Last-Translator: Marco Richetta <marcorichetta@gmail.com>\n"
-"Language: es\n"
 "Language-Team: python-doc-es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.16.0\n"
+"X-Generator: Poedit 3.5\n"
 
 #: ../Doc/c-api/memory.rst:8
 msgid "Memory Management"
@@ -121,6 +122,15 @@ msgid ""
 "free(buf); /* malloc'ed */\n"
 "return res;"
 msgstr ""
+"PyObject *res;\n"
+"char *buf = (char *) malloc(BUFSIZ); /* for I/O */\n"
+"\n"
+"if (buf == NULL)\n"
+"    return PyErr_NoMemory();\n"
+"...Do some I/O operation involving buf...\n"
+"res = PyBytes_FromString(buf);\n"
+"free(buf); /* malloc'ed */\n"
+"return res;"
 
 #: ../Doc/c-api/memory.rst:68
 msgid ""
@@ -270,10 +280,15 @@ msgid ""
 "`PyMem_Malloc`, :c:func:`PyMem_RawMalloc`, or :c:func:`malloc`, but not :c:"
 "func:`PyObject_Malloc`."
 msgstr ""
+"Por ejemplo, *buffers* (objetos que no son de Python) deben asignarse "
+"usando :c:func:`PyMem_Malloc`, :c:func:`PyMem_RawMalloc`, o :c:func:"
+"`malloc`, pero no :c:func:`PyObject_Malloc`."
 
 #: ../Doc/c-api/memory.rst:133
 msgid "See :ref:`Memory Allocation APIs <free-threaded-memory-allocation>`."
 msgstr ""
+"Consulte :ref:`APIs de Asignación de Memoria <free-threaded-memory-"
+"allocation>`."
 
 #: ../Doc/c-api/memory.rst:139
 msgid "Raw Memory Interface"
@@ -760,6 +775,8 @@ msgid ""
 "``mimalloc``: :ref:`mimalloc memory allocator <mimalloc>`.  The pymalloc "
 "allocator will be used if mimalloc support isn't available."
 msgstr ""
+"``mimalloc``: :ref:`asignador de memoria mimalloc <mimalloc>`. El asignador "
+"pymalloc se usará si no hay compatibilidad con mimalloc."
 
 # debug hooks se deja como enlaces de depuración ya que en traducciones
 # anteriores se dejó como enlaces
@@ -936,6 +953,9 @@ msgid ""
 "allocator may be called in different interpreters that do not share a "
 "``GIL``."
 msgstr ""
+"Para los dominios restantes, el asignador también debe ser seguro para los "
+"hilos: el asignador se podría llamar desde intérpretes diferentes que no "
+"comparten un ``GIL``."
 
 #: ../Doc/c-api/memory.rst:495
 msgid ""
@@ -957,7 +977,7 @@ msgstr ""
 
 #: ../Doc/c-api/memory.rst:504
 msgid ":c:func:`PyMem_SetAllocator` does have the following contract:"
-msgstr ""
+msgstr ":c:func:`PyMem_SetAllocator` tiene el contrato siguiente:"
 
 #: ../Doc/c-api/memory.rst:506
 msgid ""
@@ -976,10 +996,14 @@ msgid ""
 "existing allocator. Substituting the current allocator for some other "
 "arbitrary one is **not supported**."
 msgstr ""
+"Si se llama después de que Python haya terminado inicializándose (después de "
+"llamar :c:func:`Py_InitializeFromConfig`) el asignador **debe** envolver el "
+"asignador existente. Substituyendo el asignador actual con otro arbitrario "
+"**no es compatible**."
 
 #: ../Doc/c-api/memory.rst:519
 msgid "All allocators must be thread-safe."
-msgstr ""
+msgstr "Todos los asignadores deben ser seguro para los hilos."
 
 #: ../Doc/c-api/memory.rst:525
 msgid ""
@@ -1095,9 +1119,9 @@ msgid ""
 "Let *S* = ``sizeof(size_t)``. ``2*S`` bytes are added at each end of each "
 "block of *N* bytes requested.  The memory layout is like so, where p "
 "represents the address returned by a malloc-like or realloc-like function "
-"(``p[i:j]`` means the slice of bytes from ``*(p+i)`` inclusive up to "
-"``*(p+j)`` exclusive; note that the treatment of negative indices differs "
-"from a Python slice):"
+"(``p[i:j]`` means the slice of bytes from ``*(p+i)`` inclusive up to ``*(p"
+"+j)`` exclusive; note that the treatment of negative indices differs from a "
+"Python slice):"
 msgstr ""
 "Sea *S* = ``sizeof(size_t)``. Se agregan ``2*S`` bytes en cada extremo de "
 "cada bloque de *N* bytes solicitados. El diseño de la memoria es así, donde "
@@ -1371,6 +1395,10 @@ msgid ""
 "performance characteristics. Initially developed by Daan Leijen for the "
 "runtime systems of the Koka and Lean languages.\""
 msgstr ""
+"Python admite el asignador mimalloc cuando la plataforma subyacente lo "
+"admite. mimalloc \"es un asignador de propósito general con excelentes "
+"característicos de rendimiento. Desarrollado originalmente por Daan Leijen "
+"para los sistemas de tiempo de ejecución de las lenguajes Koka y Lean\""
 
 #: ../Doc/c-api/memory.rst:699
 msgid "tracemalloc C API"
@@ -1434,6 +1462,15 @@ msgid ""
 "PyMem_Free(buf); /* allocated with PyMem_Malloc */\n"
 "return res;"
 msgstr ""
+"PyObject *res;\n"
+"char *buf = (char *) PyMem_Malloc(BUFSIZ); /* for I/O */\n"
+"\n"
+"if (buf == NULL)\n"
+"    return PyErr_NoMemory();\n"
+"/* ...Do some I/O operation involving buf... */\n"
+"res = PyBytes_FromString(buf);\n"
+"PyMem_Free(buf); /* allocated with PyMem_Malloc */\n"
+"return res;"
 
 #: ../Doc/c-api/memory.rst:738
 msgid "The same code using the type-oriented function set::"
@@ -1452,6 +1489,15 @@ msgid ""
 "PyMem_Del(buf); /* allocated with PyMem_New */\n"
 "return res;"
 msgstr ""
+"PyObject *res;\n"
+"char *buf = PyMem_New(char, BUFSIZ); /* for I/O */\n"
+"\n"
+"if (buf == NULL)\n"
+"    return PyErr_NoMemory();\n"
+"/* ...Do some I/O operation involving buf... */\n"
+"res = PyBytes_FromString(buf);\n"
+"PyMem_Del(buf); /* allocated with PyMem_New */\n"
+"return res;"
 
 #: ../Doc/c-api/memory.rst:750
 msgid ""
@@ -1480,6 +1526,13 @@ msgid ""
 "free(buf2);       /* Right -- allocated via malloc() */\n"
 "free(buf1);       /* Fatal -- should be PyMem_Del()  */"
 msgstr ""
+"char *buf1 = PyMem_New(char, BUFSIZ);\n"
+"char *buf2 = (char *) malloc(BUFSIZ);\n"
+"char *buf3 = (char *) PyMem_Malloc(BUFSIZ);\n"
+"...\n"
+"PyMem_Del(buf3);  /* Incorrecto -- debe ser PyMem_Free() */\n"
+"free(buf2);       /* Correcto -- asignado por malloc() */\n"
+"free(buf1);       /* Fatal -- debe ser PyMem_Del()  */"
 
 #: ../Doc/c-api/memory.rst:765
 #, fuzzy
@@ -1502,16 +1555,16 @@ msgstr ""
 
 #: ../Doc/c-api/memory.rst:43
 msgid "malloc (C function)"
-msgstr ""
+msgstr "malloc (Función de C)"
 
 #: ../Doc/c-api/memory.rst:43
 msgid "calloc (C function)"
-msgstr ""
+msgstr "calloc (Función de C)"
 
 #: ../Doc/c-api/memory.rst:43
 msgid "realloc (C function)"
-msgstr ""
+msgstr "realloc (Función de C)"
 
 #: ../Doc/c-api/memory.rst:43
 msgid "free (C function)"
-msgstr ""
+msgstr "free (Función de C)"
