@@ -11,11 +11,7 @@ msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-21 16:38-0300\n"
-<<<<<<< HEAD
-"PO-Revision-Date: 2025-02-02 10:07-0500\n"
-=======
 "PO-Revision-Date: 2025-02-10 12:41-0500\n"
->>>>>>> 6fe1a5cf (Traducido c-api/memory.po)
 "Last-Translator: Marco Richetta <marcorichetta@gmail.com>\n"
 "Language-Team: python-doc-es\n"
 "Language: es\n"
@@ -222,7 +218,7 @@ msgstr ""
 "detalle de implementación, pero para fines de depuración, se puede encontrar "
 "una tabla simplificada en :ref:`here <default-memory-allocators>`. Los APIs "
 "que se usan para designar y librar un bloque de memoria deben ser del mismo "
-"dominio. Por ejemplo, se debe usar :c:func:`PyMem_Free`para librar memoria "
+"dominio. Por ejemplo, se debe usar :c:func:`PyMem_Free` para librar memoria "
 "usando :c:func:`PyMem_Malloc`."
 
 #: ../Doc/c-api/memory.rst:109
@@ -253,7 +249,7 @@ msgstr ""
 "Dominio \"Mem\": destinado a asignar memoria para búferes de Python y "
 "búferes de memoria de propósito general donde la asignación debe realizarse "
 "con el :term:`GIL` retenido. La memoria se toma del montículo privado de "
-"Python."
+"Python. Consulte :ref:`Interfaz de Memoria <memoryinterface>`."
 
 #: ../Doc/c-api/memory.rst:121
 msgid ""
@@ -316,7 +312,7 @@ msgid ""
 msgstr ""
 "El :ref:`asignador de memoria sin formato <default-memory-allocators>` usa "
 "las siguientes funciones: :c:func:`malloc`, :c:func:`calloc`, :c:func:"
-"`realloc` y :c:func:`free`; llame a ``malloc(1)`` (o ``calloc(1, 1)``) "
+"`realloc` y :c:func:`!free`; llame a ``malloc(1)`` (o ``calloc(1, 1)``) "
 "cuando solicita cero bytes."
 
 #: ../Doc/c-api/memory.rst:154 ../Doc/c-api/memory.rst:225
